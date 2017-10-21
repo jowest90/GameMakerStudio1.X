@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wave =100;
+            <string>wave =25;
 alarm[0] = 1;
 </string>
           </argument>
