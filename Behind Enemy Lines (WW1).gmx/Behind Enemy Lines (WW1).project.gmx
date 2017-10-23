@@ -10,6 +10,7 @@
     <sprite>sprites\Bullet_SPR</sprite>
     <sprite>sprites\Enemy_SPR</sprite>
     <sprite>sprites\Flak_SPR</sprite>
+    <sprite>sprites\Ground_SPR</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\Sky_BKG</background>
@@ -23,6 +24,7 @@
     <object>objects\Enemy_bullet</object>
     <object>objects\Enemy</object>
     <object>objects\Spawner</object>
+    <object>objects\ground</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Germany</room>

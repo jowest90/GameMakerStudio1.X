@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>can_shoot = true;
+sp=5;
 </string>
           </argument>
         </arguments>
@@ -71,30 +72,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Get the player's input
-key_up = keyboard_check(ord('W'))
-key_down = keyboard_check(ord('S'))
-key_right = keyboard_check(ord('D'));
-key_left = keyboard_check(ord('A'));
+            <string>//find direction toward mouse, based on player
+dir = point_direction(Red_Baron.x,Red_Baron.y,mouse_x,mouse_y)
+image_angle=dir
+speed = sp;
+direction =dir;
 
-if(key_up){
-y-=5;
-}
+  //Shoot Bullets
+  var xp, yp;
+xp=x+30*cos( degtorad(image_angle) )
+yp=y-30*sin( degtorad(image_angle) )
 
-if(key_down){
-y+=5;
-}
-
-if(key_right){
-x+=5;
-}
-
-if(key_left){
-x-=5;
-}
-
-if(mouse_check_button(mb_left) &amp;&amp; can_shoot=true){
-instance_create(x,y,Bullet);
+if(mouse_check_button(mb_left)&amp;&amp; can_shoot=true){
+bob=instance_create(xp,yp,Bullet);
+bob.speed=15
+bob.direction=image_angle
+bob.image_angle=image_angle
 can_shoot = false;
 alarm[0]=5;
 }
