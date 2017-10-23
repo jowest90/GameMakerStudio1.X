@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>can_shoot = true;
 sp=5;
+fire_rate=5;
 </string>
           </argument>
         </arguments>
@@ -73,23 +74,33 @@ sp=5;
           <argument>
             <kind>1</kind>
             <string>//find direction toward mouse, based on player
-dir = point_direction(Red_Baron.x,Red_Baron.y,mouse_x,mouse_y)
+dir = point_direction(Red_Baron.x,Red_Baron.y,mouse_x,mouse_y);
 image_angle=dir
 speed = sp;
 direction =dir;
+var xp, yp;
+
+//Flip plane if moving to the left
+//player's position
+if Red_Baron.x &lt; mouse_x {
+  image_yscale=+1;
+  xp=x+30*cos( degtorad(image_angle) )
+  yp=y-30*sin( degtorad(image_angle) )
+  }
+else{
+  image_yscale=-1;
+  xp=x+30*sin( degtorad(image_angle) )
+  yp=y-30*cos( degtorad(image_angle) )
+  }
 
   //Shoot Bullets
-  var xp, yp;
-xp=x+30*cos( degtorad(image_angle) )
-yp=y-30*sin( degtorad(image_angle) )
-
 if(mouse_check_button(mb_left)&amp;&amp; can_shoot=true){
 bob=instance_create(xp,yp,Bullet);
 bob.speed=15
 bob.direction=image_angle
 bob.image_angle=image_angle
 can_shoot = false;
-alarm[0]=5;
+alarm[0]=fire_rate;
 }
 
 x=clamp(x,0,room_width-sprite_width);
