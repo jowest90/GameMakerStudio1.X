@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>can_shoot = true;
+sp = 2;
+fire_rate=50;
 </string>
           </argument>
         </arguments>
@@ -71,21 +73,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fly=5;
+            <string>if(instance_exists(Red_Baron)){
+   move_towards_point(Red_Baron.x, Red_Baron.y, sp);
+   image_angle=direction;
+   
+}
 
-x -= fly;
-
-
-y=clamp(y,0,room_height-sprite_height);
+//Flip plane if moving to the left
+//player's position
+if Enemy.x &lt; Red_Baron.x {
+  image_yscale=+1;
+  xp=x+30*cos( degtorad(image_angle) )
+  yp=y-30*sin( degtorad(image_angle) )
+  }
+else{
+  image_yscale=-1;
+  xp=x+30*sin( degtorad(image_angle) )
+  yp=y-30*cos( degtorad(image_angle) )
+  }
 
 
 if(can_shoot=true){
-instance_create(x,y,Enemy_bullet);
+bob=instance_create(x,y,Enemy_bullet);
+bob.speed=10;
+bob.direction=image_angle
+bob.image_angle=image_angle
 can_shoot = false;
-alarm[0]=50;
+alarm[0]=fire_rate;
 }
-
-
 </string>
           </argument>
         </arguments>

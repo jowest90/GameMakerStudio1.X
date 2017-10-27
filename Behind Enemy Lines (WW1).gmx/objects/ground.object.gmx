@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>game_restart();
+            <string>room_goto(Game_Over);
+audio_stop_all();
 </string>
           </argument>
         </arguments>

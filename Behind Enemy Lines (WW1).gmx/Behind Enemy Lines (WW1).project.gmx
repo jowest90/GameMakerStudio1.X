@@ -4,30 +4,68 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\Title_Intro</sound>
+    <sound>sound\Title_Loop</sound>
+    <sound>sound\RIP</sound>
+    <sound>sound\crash</sound>
+    <sound>sound\dog_fight</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\Red_Baron_SPR</sprite>
     <sprite>sprites\Bullet_SPR</sprite>
     <sprite>sprites\Enemy_SPR</sprite>
     <sprite>sprites\Flak_SPR</sprite>
     <sprite>sprites\Ground_SPR</sprite>
+    <sprites name="Title">
+      <sprite>sprites\Title_1</sprite>
+      <sprite>sprites\Title_2</sprite>
+      <sprite>sprites\auth_SPR</sprite>
+      <sprite>sprites\start_SPR</sprite>
+    </sprites>
+    <sprites name="Game_Over">
+      <sprite>sprites\Grave_SPR</sprite>
+      <sprite>sprites\Continue_SPR</sprite>
+      <sprite>sprites\Quit_SPR</sprite>
+      <sprite>sprites\Menu_SPR</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\Sky_BKG</background>
     <background>background\Clouds_BKG</background>
     <background>background\Trench_BKG</background>
+    <background>background\Game_Over_BKG</background>
   </backgrounds>
   <paths name="paths"/>
+  <fonts name="fonts"/>
   <objects name="objects">
-    <object>objects\Red_Baron</object>
-    <object>objects\Bullet</object>
-    <object>objects\Enemy_bullet</object>
-    <object>objects\Enemy</object>
-    <object>objects\Spawner</object>
-    <object>objects\ground</object>
+    <objects name="Title">
+      <object>objects\RB_Title</object>
+      <object>objects\T1</object>
+      <object>objects\T2</object>
+      <object>objects\start_obj</object>
+      <object>objects\auth</object>
+      <object>objects\bk_music</object>
+    </objects>
+    <objects name="Germany">
+      <object>objects\Red_Baron</object>
+      <object>objects\Bullet</object>
+      <object>objects\Enemy</object>
+      <object>objects\Enemy_bullet</object>
+      <object>objects\Spawner</object>
+      <object>objects\ground</object>
+    </objects>
+    <objects name="Game_Over">
+      <object>objects\Grave</object>
+      <object>objects\Cont</object>
+      <object>objects\Quit</object>
+      <object>objects\back</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\Title</room>
     <room>rooms\Germany</room>
+    <room>rooms\Game_Over</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
